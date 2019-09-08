@@ -1,4 +1,4 @@
-// Package reverse creates a reverse look-up for URLS. Simplified version of https://github.com/alehano/reverse.
+// Package reverse provides a simple reverse look-up for URLS.
 package goreverse
 
 import "fmt"
@@ -16,6 +16,7 @@ func NewURLReverse() URLReverse {
 }
 
 // Add adds a named url to the URLReverse
+// Panics if url already added to URLReverse
 func (u *URLReverse) Add(urlName, url string) string {
 	if u.urls[urlName] != "" && u.urls[urlName] != url {
 		panicMessage := fmt.Sprintf("Panic: the url %s has already been added to URLReverse", url)
